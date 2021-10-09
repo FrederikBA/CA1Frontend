@@ -11,15 +11,27 @@ document.getElementById("all-content").style.display = "block"
 /* Home*/
 const homeTable = document.getElementById('tablehome')
 const searchBar = document.getElementById('homesearch')
+
 homesearch.addEventListener('input', () => {
+
   //Person by ID
   if (!isNaN(homesearch.value) && homesearch.value.length < 8)
     personFacade.getPersonById(homesearch.value, homeTable)
-    //homeTable.innerHTML = utilFacade.getTableHeader()
+  //Clear after search changes
+  homeTable.innerHTML = ''
 
   //Person by Number
   personFacade.getPersonByNumber(homesearch.value, homeTable)
+  //Clear after search changes
+  homeTable.innerHTML = ''
 
+  //Persons by hobby
+  personFacade.getAllPersonsByHobby(homesearch.value, homeTable)
+  //Clear after search changes
+  homeTable.innerHTML = ''
+
+  //Persons by ZIP
+  personFacade.getAllPersonsByZip(homesearch.value, homeTable)
   //Clear after search changes
   homeTable.innerHTML = ''
 

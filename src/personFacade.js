@@ -14,7 +14,7 @@ function getPersonById(id, domElement) {
             tr.insertCell().textContent = data.hobbies[0].name
             tr.insertCell().textContent = data.phones[0].number
             tr.insertCell().textContent = data.address.street
-            tr.insertCell().textContent = data.address.cityInfo.zipcode + ' ' + obj.address.cityInfo.city
+            tr.insertCell().textContent = data.address.cityInfo.zipcode + ' ' + data.address.cityInfo.city
         })
 }
 
@@ -32,7 +32,7 @@ function getPersonByNumber(number, domElement) {
             tr.insertCell().textContent = data.hobbies[0].name
             tr.insertCell().textContent = data.phones[0].number
             tr.insertCell().textContent = data.address.street
-            tr.insertCell().textContent = data.address.cityInfo.zipcode + ' ' + obj.address.cityInfo.city
+            tr.insertCell().textContent = data.address.cityInfo.zipcode + ' ' + data.address.cityInfo.city
         })
 }
 
@@ -46,6 +46,48 @@ function getAllPersons(name, domElement) {
             let arr = all.filter(n => n.firstName === name)
             if (name === 'unfiltered') arr = all
             for (let obj of arr) {
+                let tr = domElement.insertRow()
+                tr.insertCell().textContent = obj.id
+                tr.insertCell().textContent = obj.email
+                tr.insertCell().textContent = obj.firstName
+                tr.insertCell().textContent = obj.lastName
+                tr.insertCell().textContent = obj.hobbies[0].name
+                tr.insertCell().textContent = obj.phones[0].number
+                tr.insertCell().textContent = obj.address.street
+                tr.insertCell().textContent = obj.address.cityInfo.zipcode + ' ' + obj.address.cityInfo.city
+            }
+        })
+}
+
+function getAllPersonsByHobby(hobby, domElement) {
+    fetch(URL + '/hobby/' + hobby)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            let all = data.all
+            for (let obj of all) {
+                let tr = domElement.insertRow()
+                tr.insertCell().textContent = obj.id
+                tr.insertCell().textContent = obj.email
+                tr.insertCell().textContent = obj.firstName
+                tr.insertCell().textContent = obj.lastName
+                tr.insertCell().textContent = obj.hobbies[0].name
+                tr.insertCell().textContent = obj.phones[0].number
+                tr.insertCell().textContent = obj.address.street
+                tr.insertCell().textContent = obj.address.cityInfo.zipcode + ' ' + obj.address.cityInfo.city
+            }
+        })
+}
+
+function getAllPersonsByZip(zip, domElement) {
+    fetch(URL + '/city/' + zip)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            let all = data.all
+            for (let obj of all) {
                 let tr = domElement.insertRow()
                 tr.insertCell().textContent = obj.id
                 tr.insertCell().textContent = obj.email
@@ -83,6 +125,8 @@ const personFacade = {
     getPersonById,
     getPersonByNumber,
     getAllPersons,
+    getAllPersonsByHobby,
+    getAllPersonsByZip,
     getAllArray,
     addPerson,
     editPerson
