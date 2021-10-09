@@ -69,3 +69,7 @@ ul.header li a:hover:not(.active) {
 .homediv {
   font-family: "Arial Black";
 }
+
+.admintablediv {
+  font-family: "Arial";
+}
