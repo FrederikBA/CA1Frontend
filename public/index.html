@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CA1Frontend</title>
+</head>
+
+<body>
+  <div id="all-content" style="display: none;">
+    <ul id="menu" class="header">
+      <li><a href="" id="home">Home</a></li>
+      <li><a href="" id="admin">Admin</a></li>
+    </ul>
+
+    <div class="content">
+
+      <!-- Home -->
+      <div id="home_html" style="display:none;">
+        <div class="homediv">
+          <input placeholder="Search by id, hobby, phone etc..." class="form-control" id="homesearch" type="text">
+          <table id="tablehome" class="table table-borderless"></table>
+        </div>
+      </div>
+      <!-- End of Home -->
+
+      <!-- This is Admin -->
+      <div id="admin_html" style="display:none;">
+        <h2>Admin Page</h2>
+        <div>
+          <label class="labelheader">All Persons</label>
+          <table id="tableadmin" class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Hobby</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>City</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        <label class="label" for="filterbyname">Filter by name</label>
+        <input class="form-control" id="filterbyname" type="text">
+        <button id="openaddmodal" type="button" class="button">Add Person</button>
+        <button id="openeditmodal" type="button" class="button">Edit Person</button>
+        <!--Add Modal-->
+        <div id="addmodal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add person</h5>
+              </div>
+              <div class="modal-body">
+                <label class="label" for="addemail">Email address</label>
+                <input class="form-control" id="addemail" type="text">
+
+                <label class="label" for="addfirstname">First Name</label>
+                <input class="form-control" id="addfirstname" type="text">
+
+                <label class="label" for="addlastname">Last Name</label>
+                <input class="form-control" id="addlastname" type="text">
+
+                <label class="label" for="addhobby">Hobby</label>
+                <input class="form-control" id="addhobby" type="text">
+
+                <label class="label" for="addnumber">Phone Number</label>
+                <input class="form-control" id="addnumber" type="text">
+
+                <label class="label" for="addstreet">Street</label>
+                <input class="form-control" id="addstreet" type="text">
+
+                <label class="label" for="addzip">Zip</label>
+                <input class="form-control" id="addzip" type="text">
+
+                <label class="label" for="addcity">City</label>
+                <input class="form-control" id="addcity" type="text">
+              </div>
+              <div class="modal-footer">
+                <button id="saveperson" type="button" class="btn btn-primary">Save person</button>
+                <button id="closeaddmodal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Edit Modal-->
+        <div id="editmodal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 id="emtitle" class="modal-title">Edit person</h5>
+                <select class="form-select editselect" id="selectNumber"></select>
+              </div>
+              <div class="modal-body">
+                <label class="label" for="editemail">Email address</label>
+                <input class="form-control" id="editemail" type="text">
+
+                <label class="label" for="editfirstname">First Name</label>
+                <input class="form-control" id="editfirstname" type="text">
+
+                <label class="label" for="editlastname">Last Name</label>
+                <input class="form-control" id="editlastname" type="text">
+
+                <label class="label" for="edithobby">Hobby</label>
+                <input class="form-control" id="edithobby" type="text">
+
+                <label class="label" for="editnumber">Phone Number</label>
+                <input class="form-control" id="editnumber" type="text">
+
+                <label class="label" for="editstreet">Street</label>
+                <input class="form-control" id="editstreet" type="text">
+
+                <label class="label" for="editzip">Zip</label>
+                <input class="form-control" id="editzip" type="text">
+
+                <label class="label" for="editcity">City</label>
+                <input class="form-control" id="editcity" type="text">
+              </div>
+              <div class="modal-footer">
+                <button id="updateperson" type="button" class="btn btn-primary">Update Person</button>
+                <button id="closeeditmodal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Admin -->
+
+
+
+
+      <!--End of all content -->
+    </div>
+  </div>
+
+</body>
+
+</html>
